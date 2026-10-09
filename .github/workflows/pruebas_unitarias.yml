@@ -10,16 +10,16 @@ jobs:
   testear-codigo:
     runs-on: ubuntu-latest
     steps:
-      - name: DESCARGAR CODIGO FUENTE 
+      - name: descargar codigo fuente
         uses: actions/checkout@v4
       
-      - name: cONFIGURAR PYTHON 
+      - name: configuracion de python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.10
+          python-version: "3.10"
       
-      - name: Instalar dependencias
+      - name: instalar dependencias
         run: pip install pytest
       
-      - name: Ejecutar pruebas
+      - name: ejecutar pruebas
         run: pytest test_app.py
