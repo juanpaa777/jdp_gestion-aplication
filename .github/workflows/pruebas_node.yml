@@ -1,0 +1,26 @@
+name: Pruebas Automaticas Node
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - release
+
+jobs:
+  testear-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: descargar codigo fuente
+        uses: actions/checkout@v4
+
+      - name: configuracion de node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: instalar dependencias
+        run: npm install
+
+      - name: ejecutar pruebas
+        run: npm test
